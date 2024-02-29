@@ -2,16 +2,58 @@ Reference = 0;
 EqNum = Math.floor(Math.random() *5);
 
 function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
-    // v = u + at
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     // 3d array: Array[EQNUM][Unknown][Format]
     Formats = [
         [
-            [
+            [ //v = u + at: v is unknown
                 "A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds. What is its velocity after accelerating in m/s?", 
 
+            ],
+            [ //v = u + at: u is unknown
+
+            ],
+            [//v = u + at: a is unknown
+
+            ],
+            [//v = u + at: t is unknown
+
             ]
+        ],
+        [
+            [ //s = ut + 1/2at^2: 
+                
+
+            ],
+            [ //v = u + at: u is unknown
+
+            ],
+            [//v = u + at: a is unknown
+
+            ],
+            [//v = u + at: t is unknown
+
+            ]
+        ],
+        [
+            [ //v = u + at: v is unknown
+                
+
+            ],
+            [ //v = u + at: u is unknown
+
+            ],
+            [//v = u + at: a is unknown
+
+            ],
+            [//v = u + at: t is unknown
+
+            ]
+
+        ],
+        [
+
         ]
     ]
     Val1 = Math.floor(Math.random() * 20);
@@ -161,3 +203,8 @@ function AnswerCheck(){
     }
     event.preventDefault();
 }
+
+
+// Basic -> All values are given in the real world example -> No free fall
+// Intermediate -> All values not given -> Free fall or implied
+// Advanced -> Projectile and 2d motion
