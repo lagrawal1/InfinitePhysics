@@ -1,4 +1,4 @@
-var Reference = 0;
+Reference = 0;
 
 function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
 
@@ -21,7 +21,8 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
         t= (v-u)/a;
         return t;
     }
-
+    
+    event.preventDefault();
 
 
 }
@@ -31,12 +32,15 @@ function GenerateKinematic(){
     EqNum = 0;
     var s, u, v, a, t;
     if (EqNum == 0){
-
         var RNG = Math.floor(Math.random()*4);
+        RNG = 0;
 
         if (RNG == 0){
-            Reference = KinematicEq1(u , a, t, "v" , ["u" , "a", "t"]);
-            alert(Reference);
+            temp = KinematicEq1(u , a, t, "v" , ["u" , "a", "t"]);
+            alert(temp);
+            Reference =temp;
+            alert("work for fuck's sake");
+            
         } else if (RNG == 1){
             window.Reference = KinematicEq1(v , a, t, "u" , ["v" , "a", "t"]);
             alert(Reference);
@@ -55,8 +59,7 @@ function GenerateKinematic(){
 
 
 function AnswerCheck(){
-    alert(Reference);
-    var Input = document.getElementById("KinematicInput").value; // Enter id of input
+    var Input = document.getElementById("KinematicInput").value; 
 
     if (Input.trim() ==""){
         alert("Please enter a value.");
