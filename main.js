@@ -10,43 +10,48 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
     Val3 = Math.floor(Math.random() * 20);
     document.getElementById("Question").innerText = ParameterNames[0]+" = "+Val1 +" , "+ ParameterNames[1]+" = "+Val2 + " , "+ParameterNames[2]+" = "+Val3;
 
-    if (Unknown == "v" ){
-        v = Val1 + Val2*Val3;
-        return v;
-    } else if (Unknown = "u"){
-        u = Val1-Val2*Val3;
-        return u;
-    } else if (Unknown = "a"){
-        a = (Val1-Val2)/Val3;
-        return a;
-    } else if (Unknown = "t"){
-        t= (Val1-Val2)/Val3;
-        return t;
+    switch(EqNum){
+        case 0:
+            // v = u + at
+            switch(Unknown){
+                case "v":
+                    return (Val1 + Val2*Val3);
+                    break;
+                case "u":
+                    return (Val1-Val2*Val3);
+                    break;
+                case "a":
+                    return ((Val1-Val2)/Val3);
+                    break;
+                case "t":
+                    return ((Val1-Val2)/Val3);
+                    break;
+
+            }
+            break;
+        case 1:
+            //v^2 = u^2 + 2as
+            switch(Unknown){
+                case "v":
+                    return (Math.sqrt(Val1*Val1 + 2*Val2*Val3));
+                    break;
+                case "u":
+                    return (Val1-Val2*Val3);
+                    break;
+                case "a":
+                    return ((Val1-Val2)/Val3);
+                    break;
+                case "t":
+                    return ((Val1-Val2)/Val3);
+                    break;
+
+            }
+            break;
     }
+
+
 }
 
-function KinematicEq2(Val1 , Val2, Val3,Unknown, ParameterNames){
-    // v^2 = u^2 + 2as
-    // Work on this functionasdfdksjfnakjsdf
-    Val1 = Math.floor(Math.random() * 20);
-    Val2 = Math.floor(Math.random() * 20);
-    Val3 = Math.floor(Math.random() * 20);
-    document.getElementById("Question").innerText = ParameterNames[0]+" = "+Val1 +" , "+ ParameterNames[1]+" = "+Val2 + " , "+ParameterNames[2]+" = "+Val3;
-
-    if (Unknown == "v"){
-        v = Math.sqrt(Val1*Val1 + 2*Val2*Val3);
-        return v;
-    } else if (Unknown = "u"){
-        u = Val1-Val2*Val3;
-        return u;
-    } else if (Unknown = "a"){
-        a = (Val1-Val2)/Val3;
-        return a;
-    } else if (Unknown = "s"){
-        t= (Val1-Val2)/Val3;
-        return t;
-    }
-}
 
 function GenerateKinematic(){
 
@@ -65,7 +70,7 @@ function GenerateKinematic(){
     } else if (EqNum == 1){
         RNG = 0;
         if (RNG == 0){
-            Reference = KinematicEq1(u , a, t, "v" , ["u" , "a", "t"]);
+            Reference = KinematicEq1(u , a, s, "v" , ["u" , "a", "s"]);
         } else if (RNG == 1){
             Reference = KinematicEq1(v , a, t, "u" , ["v" , "a", "t"]);
         }else if (RNG == 2){
