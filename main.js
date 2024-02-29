@@ -48,25 +48,24 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
                     return ((Val1-0.5*Val3*Val2*Val2)/Val2); // Val1 = s, Val2 = t, Val3 =a
                     break;
                 case "a":
-                    return ((Val1-Val2)/Val3);
+                    return (2*(Val1-Val2*Val3)/(Val3*Val3)); // Val1 = s, Val2 = u, Val3 = t
                     break;
                 case "t":
-                    return ((Val1-Val2)/Val3);
+                    return ((-1*Val1 + Math.sqrt(Val1*Val1 + 2*Val2*Val3))/Val2); // Val1 = u, Val2 = a, Val3 = s Reminder: Check out for 2 solutions
                     break;
-
             }
             break;
         case 2:
-            //v^2 = u^2 + 2as
+            //s = vt - 1/2at^2
             switch(Unknown){
-                case "v":
-                    return (Math.sqrt(Val1*Val1 + 2*Val2*Val3));
+                case "s":
+                    return (Val1*Val2 - 0.5*Val3*Val2*Val2); // Val1 = v , Val2 = t, Val3 = a
                     break;
-                case "u":
-                    return (Val1-Val2*Val3);
+                case "v":
+                    return ((Val1 + 0.5*Val3*Val2*Val2)/Val2); // Val1 = s, Val2 = t, Val3 = a
                     break;
                 case "a":
-                    return ((Val1-Val2)/Val3);
+                    return ((Val1-Val2)/Val3); // 
                     break;
                 case "t":
                     return ((Val1-Val2)/Val3);
