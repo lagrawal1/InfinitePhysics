@@ -9,7 +9,7 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
     Formats = [
         [
             [
-                "A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds. What is its velocity after accelerating?", 
+                "A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds. What is its velocity after accelerating in m/s?", 
 
             ]
         ]
@@ -27,7 +27,7 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
                     return (Val1 + Val2*Val3); // Val1 = u, Val2 = a, Val3 = t
                     break;
                 case "u":
-                    return (Val1-Val2*Val3);
+                    return (Val1-Val2*Val3); // Val1 = 
                     break;
                 case "a":
                     return ((Val1-Val2)/Val3);
@@ -42,10 +42,10 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
             //s = ut + 1/2at^2
             switch(Unknown){
                 case "s":
-                    return (Val1*Val2+0.5*Val3*Val2*Val2);
+                    return (Val1*Val2+0.5*Val3*Val2*Val2); // Val = u, Val2 = t, Val3 = a
                     break;
                 case "u":
-                    return (Val1-Val2*Val3);
+                    return ((Val1-0.5*Val3*Val2*Val2)/Val2); // Val1 = s, Val2 = t, Val3 =a
                     break;
                 case "a":
                     return ((Val1-Val2)/Val3);
