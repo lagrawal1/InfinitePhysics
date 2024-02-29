@@ -1,39 +1,62 @@
 
-function KinematicEq1(){
-    // v =u +at
-    let RNG = Math.floor(Math.random * 4);
-    if (RNG == 0){
-        //Solve for v
-        let u = Math.floor(Math.random * 100);
-        let a = Math.floor(Math.random * 100);
-        let t = Math.floor(Math.random * 100);
-        // Get innerhtml and create question here.
 
-        v = u +a*t;
-        var input = document.getElementById(); // Enter id of input
-        if (input == v){
-            alert("correct");
-        } else {
-            alert("nope");
-        }
+function KinematicEq1(u , a, t,Unknown){
+
+    if (Unknwon == "v"){
 
 
     }
 
 
-    
-} 
 
-function BasicKinematic(EqNum){
-    let n = Math.floor(Math.random()*10);
-    var s, u, v, a, t, input;
-    if (EqNum == 0){
-        // v = u +at
-        KinematicEq1()
-        
 
-    }
 
+    event.preventDefault();
 }
 
 
+
+
+function GenerateKinematic(){
+    let EqNum = Math.floor(Math.random() *5);
+    EqNum = 0;
+    var s, u, v, a, t;
+    if (EqNum == 0){
+
+        let RNG = Math.floor(Math.random()*4)
+        // v = u +at
+        if (RNG == 0){
+            //Solve for v
+            u = Math.floor(Math.random() * 100);
+            a = Math.floor(Math.random() * 100);
+            t = Math.floor(Math.random() * 100);
+            document.getElementById("Question").innerText = "u = " + u + " , a = " + a + ", t =" + t ;
+            // Get innerhtml and create question here.
+            v = u+a*t;
+            return v;
+        } else if (RNG == 1){
+
+        }else if (RNG == 2){
+            
+        }else if (RNG ==3){
+            
+        }
+    }
+
+
+    event.preventDefault();
+}
+
+
+
+
+function AnswerCheck(Reference){
+    var Input = document.getElementById("KinematicInput").value; // Enter id of input
+    if (Input == Reference){
+        alert("correct");
+        GenerateKinematic();
+    } else{
+        alert("incorrect");
+    }
+    event.preventDefault();
+}

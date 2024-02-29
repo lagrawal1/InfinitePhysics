@@ -6,11 +6,13 @@
     <title>MainTest</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "main.js"></script>
 </head>
-<body>
-    <button class="btn">Button</button>
-    <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-    
+<body onload = "x = GenerateKinematic()">
+    <button class="btn" onclick="AnswerCheck(x)">Button</button>
+    <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" id = "KinematicInput"/>
+    <p id ="Question"></p>
+
 
 
     
