@@ -1,13 +1,15 @@
 Reference = 0;
+EqNum = Math.floor(Math.random() *5);
 
 function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
     // v = u + at
+    // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     Val1 = Math.floor(Math.random() * 20);
     Val2 = Math.floor(Math.random() * 20);
     Val3 = Math.floor(Math.random() * 20);
     document.getElementById("Question").innerText = ParameterNames[0]+" = "+Val1 +" , "+ ParameterNames[1]+" = "+Val2 + " , "+ParameterNames[2]+" = "+Val3;
 
-    if (Unknown == "v"){
+    if (Unknown == "v" ){
         v = Val1 + Val2*Val3;
         return v;
     } else if (Unknown = "u"){
@@ -39,14 +41,14 @@ function KinematicEq2(Val1 , Val2, Val3,Unknown, ParameterNames){
     } else if (Unknown = "a"){
         a = (Val1-Val2)/Val3;
         return a;
-    } else if (Unknown = "t"){
+    } else if (Unknown = "s"){
         t= (Val1-Val2)/Val3;
         return t;
     }
 }
 
 function GenerateKinematic(){
-    let EqNum = Math.floor(Math.random() *5);
+
     EqNum = 0;
     var s, u, v, a, t;
     if (EqNum == 0){
