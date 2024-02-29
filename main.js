@@ -5,6 +5,15 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
     // v = u + at
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
+    // 3d array: Array[EQNUM][Unknown][Format]
+    Formats = [
+        [
+            [
+                "A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds. What is its velocity after accelerating?", 
+
+            ]
+        ]
+    ]
     Val1 = Math.floor(Math.random() * 20);
     Val2 = Math.floor(Math.random() * 20);
     Val3 = Math.floor(Math.random() * 20);
@@ -47,6 +56,62 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
 
             }
             break;
+        case 2:
+            //v^2 = u^2 + 2as
+            switch(Unknown){
+                case "v":
+                    return (Math.sqrt(Val1*Val1 + 2*Val2*Val3));
+                    break;
+                case "u":
+                    return (Val1-Val2*Val3);
+                    break;
+                case "a":
+                    return ((Val1-Val2)/Val3);
+                    break;
+                case "t":
+                    return ((Val1-Val2)/Val3);
+                    break;
+
+            }
+            break;
+            case 3:
+                //v^2 = u^2 + 2as
+                switch(Unknown){
+                    case "v":
+                        return (Math.sqrt(Val1*Val1 + 2*Val2*Val3));
+                        break;
+                    case "u":
+                        return (Val1-Val2*Val3);
+                        break;
+                    case "a":
+                        return ((Val1-Val2)/Val3);
+                        break;
+                    case "t":
+                        return ((Val1-Val2)/Val3);
+                        break;
+    
+                }
+                break;
+            case 4:
+            //v^2 = u^2 + 2as
+            switch(Unknown){
+                case "v":
+                    return (Math.sqrt(Val1*Val1 + 2*Val2*Val3));
+                    break;
+                case "u":
+                    return (Val1-Val2*Val3);
+                    break;
+                case "a":
+                    return ((Val1-Val2)/Val3);
+                    break;
+                case "t":
+                    return ((Val1-Val2)/Val3);
+                    break;
+
+            }
+            break;
+        
+
     }
 
 
