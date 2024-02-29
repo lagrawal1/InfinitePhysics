@@ -7,12 +7,27 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src = "main.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        #container {
+            height:50vh;
+            margin-top: 10vh;
+            border-radius: 20px;
+            justify-content: center;
+        }
+    </style>
 </head>
-<body onload = "GenerateKinematic()">
-    <div class = "flex flex-col  justify-center items-center space-y-5 bg-orange-100">
-        <p class = "text-xl" id ="Question"></p>
+<body class = "flex items-center" onload = "GenerateKinematic()">
+    <div id = "container" class = "flex flex-col w-1/2 items-center space-y-5 bg-orange-100">
+        <div class = "flex space-x-4">
+            <p class = text-2xl>Problem: </p>
+            <p class = "text-xl" id ="Question"></p>
+        </div>
         <div class="flex flex-nowrap space-x-2">
-            <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" id = "KinematicInput"/>
+            <input type="number" placeholder="Type your answer..." class="input input-bordered w-full max-w-xs" id = "KinematicInput"/>
             <button class="btn bg-orange-400 text-white" onclick="AnswerCheck()">Enter</button>
         </div>
     </div>    
