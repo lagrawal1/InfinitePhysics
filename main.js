@@ -4,6 +4,7 @@ EqNum = Math.floor(Math.random() *5);
 function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
     // v = u + at
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
+    // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     Val1 = Math.floor(Math.random() * 20);
     Val2 = Math.floor(Math.random() * 20);
     Val3 = Math.floor(Math.random() * 20);
@@ -49,11 +50,9 @@ function KinematicEq2(Val1 , Val2, Val3,Unknown, ParameterNames){
 
 function GenerateKinematic(){
 
-    EqNum = 0;
     var s, u, v, a, t;
+    var RNG = Math.floor(Math.random() *4);
     if (EqNum == 0){
-        var RNG = Math.floor(Math.random() *4);
-        RNG = 0;
         if (RNG == 0){
             Reference = KinematicEq1(u , a, t, "v" , ["u" , "a", "t"]);
         }else if (RNG == 1){
@@ -64,7 +63,6 @@ function GenerateKinematic(){
             Reference  = KinematicEq1(v,u,a,"t", ["v","u","a"]);
         }
     } else if (EqNum == 1){
-        var RNG = Math.floor(Math.random() *4);
         RNG = 0;
         if (RNG == 0){
             Reference = KinematicEq1(u , a, t, "v" , ["u" , "a", "t"]);
