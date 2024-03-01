@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-theme = "wireframe" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainTest</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "main.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        #container {
+            height:50vh;
+            margin-top: 5vh;
+            border-radius: 20px;
+            
+        }
+        #container > p {
+            margin-top: 5vh;
+            margin-bottom: 3vh;
+        }
+        button {
+            width: 200px;
+        }
+    </style>
+</head>
+<body class = "flex items-center">
+    <div id = "container" class = "flex flex-col w-1/2 items-center space-y-5 bg-orange-100">
+            <p class = "text-3xl">InfinitePhysics</p> 
+            <a href = "main.html"><button class = "btn bg-orange-400 text-white text-xl">Start</button></a>
+            <a href = "main.html"><button class = "btn bg-orange-400 text-white text-xl">Help</button></a>
+    </div>
+</body>
+</html>
