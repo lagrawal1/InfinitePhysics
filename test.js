@@ -53,7 +53,11 @@ function GenerateKinematic(){
     Eq = EquationMap.get(Id);
     Unknown = KinematicEquations[RNG + 1];
     Formats = [
-        ["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places. ", ]
+        ["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places. ", ],
+        [],
+        [],
+        [],
+        []
     ];
     ValList = KinematicEquations[EqNum];
     ValList.splice(0, 1);
