@@ -5,8 +5,6 @@ RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
 
 
-
-
 KinematicEquations = [
     ["v=u+a*t" , "v", "u", "a", "t"],
     ["s=ut+1/2at^2 " , "s", "u", "a", "t"],
@@ -92,7 +90,6 @@ function GenerateKinematic(){
     }
 
     document.getElementById("Question").innerText = Question;
-    const Obj = Json.parse
 
     Reference= eval(EquationMap.get(Id));
     event.preventDefault();
@@ -100,7 +97,7 @@ function GenerateKinematic(){
 
 
 function AnswerCheck(){
-    var Input = document.getElementById("KinematicInput").value; 
+    var Input = document.getElementById("KinematicInput").value
 
     if (Input.trim() ==""){
         document.getElementById("Response").innerText = "Please enter a value.";
