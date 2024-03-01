@@ -74,6 +74,7 @@ function GenerateKinematic(){
         [ValList[2] , Val3],
 
     ]);
+    
     Question = Formats[EqNum][RandomInt(0,2)];
     for (let i=0;i<ValList.length; i++){
         if (ValList[i] == "s"){
@@ -95,7 +96,6 @@ function GenerateKinematic(){
     event.preventDefault();
 }
 
-
 function AnswerCheck(){
     var Input = document.getElementById("KinematicInput").value
 
@@ -112,6 +112,3 @@ function AnswerCheck(){
     }
     event.preventDefault();
 }
-
-
-
