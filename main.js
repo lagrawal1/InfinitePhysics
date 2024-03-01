@@ -74,7 +74,7 @@ function GenerateKinematic(){
         [ValList[2] , Val3],
 
     ]);
-    
+
     Question = Formats[EqNum][RandomInt(0,2)];
     for (let i=0;i<ValList.length; i++){
         if (ValList[i] == "s"){
