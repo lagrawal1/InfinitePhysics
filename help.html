@@ -24,17 +24,32 @@
             margin-top: 2vh;
             margin-left: 3vh;
         }
+        #main-container {
+            display: flex;
+            justify-content: center;
+        }
+        #container {
+            height:50vh;
+            margin-top: 10vh;
+            border-radius: 20px;
+            justify-content: center;
+        }
+        i {
+            margin-top: 2vh;
+            margin-left: 3vh;
+        }
 </style>
     </style>
 </head>
-<body>
-    <a href = "home.html"><i class ="material-icons" style="font-size:50px">home</i></a>
-    <div class = "flex-col items-center space-y-5">
-        <p class = "text-3xl">SUVAT equations</p>
-        <div class = "flex flex-row">
-            <img src = suvat.png>
-            <img src = values.png>
-        </div>    
-    </div>
+<body class = "flex">
+    <div id = "main-container" class = "flex items-center">
+        <div id = "container" class = "flex flex-col w-1/2 items-center space-y-5 bg-orange-100">
+            <p class = "text-3xl">SUVAT equations</p>
+            <a href = "home.html"><i class ="material-icons" style="font-size:60px">home</i></a>
+            <div class = "flex mx-10 space-x-4">
+                <img src = suvat.png>
+                <img src = values.png>
+        </div>  
+    </div>  
 </body>
 </html>
