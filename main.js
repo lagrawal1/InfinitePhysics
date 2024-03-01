@@ -46,7 +46,7 @@ EquationMap = new Map([
 
 
 function RandomInt(min,max){
-    return (Math.floor((Math.random()* (max-min)) + min));
+    return (Math.floor((Math.random()* (max-min+1)) + min));
 }
 
 function GenerateKinematic(){
@@ -75,7 +75,7 @@ function GenerateKinematic(){
 
     ]);
 
-    Question = Formats[EqNum][RandomInt(0,2)];
+    Question = Formats[EqNum][RandomInt(0,1)];
     for (let i=0;i<ValList.length; i++){
         if (ValList[i] == "s"){
             Question = Question.replace("DISPLACEMENT", ValMap.get(ValList[i]));
