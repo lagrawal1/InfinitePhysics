@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme = "wireframe" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MainTest</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "main.js"></script>
     <style>
         body {
             display: flex;
-            justify-content: center;
+            
+        }
+        div {
+            margin-top: 10vh;
+            margin-left: 5vh;
+        }
+        div > p {
+            margin-left: 50px;
         }
     </style>
 </head>
 <body>
-    <img src = suvat.png>
+    <div class = "flex-col items-center space-y-5">
+        <p class = "text-3xl">SUVAT equations</p>
+        <div class = "flex flex-row">
+            <img src = suvat.png>
+            <img src = values.png>
+        </div>    
+    </div>
 </body>
 </html>
