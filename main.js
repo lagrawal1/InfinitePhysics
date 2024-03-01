@@ -1,64 +1,42 @@
 Reference = 0;
 EqNum = Math.floor(Math.random() *5);
 
+KinematicEquations = [
+    ["v=u+a*t" , "v", "u", "a", "t"],
+    ["s=ut+1/2at^2 " , "s", "u", "a", "t"],
+    ["s = vt - 1/2at^2" , "s", "v", "t", "a"],
+    ["/v^2 = u^2 + 2as", "v", "u", "a", "s" ],
+    ["s = ((v+u)/2)*t", "s", "v", "u", "t"]
+];
+
+function RandomInt(max,min){
+    return (Math.floor((Math.random()* (max-min)) + min));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
-    // 3d array: Array[EQNUM][Unknown][Format]
+    // 3d array: Array[EQNUM][Format]
     Formats = [
-        [
-            [ //v = u + at: v is unknown
-                "A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds. What is its velocity after accelerating in m/s?", 
-
-            ],
-            [ //v = u + at: u is unknown
-
-            ],
-            [//v = u + at: a is unknown
-
-            ],
-            [//v = u + at: t is unknown
-
-            ]
-        ],
-        [
-            [ //s = ut + 1/2at^2: 
-                
-
-            ],
-            [ //v = u + at: u is unknown
-
-            ],
-            [//v = u + at: a is unknown
-
-            ],
-            [//v = u + at: t is unknown
-
-            ]
-        ],
-        [
-            [ //v = u + at: v is unknown
-                
-
-            ],
-            [ //v = u + at: u is unknown
-
-            ],
-            [//v = u + at: a is unknown
-
-            ],
-            [//v = u + at: t is unknown
-
-            ]
-
-        ],
-        [
-
-        ]
+        ["A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds to FINAL_VELOCITY. Find the value of the blank. ", ]
     ]
-    Val1 = Math.floor(Math.random() * 20);
-    Val2 = Math.floor(Math.random() * 20);
-    Val3 = Math.floor(Math.random() * 20);
+        
+
+        
+    Val1,Val2,Val3 = RandomInt(0,20);
     document.getElementById("Question").innerText = ParameterNames[0]+" = "+Val1 +" , "+ ParameterNames[1]+" = "+Val2 + " , "+ParameterNames[2]+" = "+Val3;
 
     switch(EqNum){
