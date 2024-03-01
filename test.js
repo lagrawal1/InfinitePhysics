@@ -3,7 +3,6 @@ EqNum = Math.floor(Math.random() *5);
 EqNum = 0;
 RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
-RNG = 0;
 
 KinematicEquations = [
     ["v=u+a*t" , "v", "u", "a", "t"],
