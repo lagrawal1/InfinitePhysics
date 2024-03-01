@@ -1,6 +1,5 @@
 Reference = 0;
 EqNum = Math.floor(Math.random() *5);
-EqNum =0;
 RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
 
@@ -8,7 +7,7 @@ KinematicEquations = [
     ["v=u+a*t" , "v", "u", "a", "t"],
     ["s=ut+1/2at^2 " , "s", "u", "a", "t"],
     ["s = vt - 1/2at^2" , "s", "v", "t", "a"],
-    ["/v^2 = u^2 + 2as", "v", "u", "a", "s" ],
+    ["v^2 = u^2 + 2as", "v", "u", "a", "s" ],
     ["s = ((v+u)/2)*t", "s", "v", "u", "t"]
 ];
 
@@ -48,38 +47,57 @@ function RandomInt(min,max){
     return (Math.floor((Math.random()* (max-min)) + min));
 }
 
-
-function KinematicEq(){
-    Formats = [
-        ["A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds to FINAL_VELOCITY. Find the value of the blank. ", ]
-    ]
-
-    Eq = Map.get(Id);
-    Unknown = KinematicEquations[RNG + 1];
-
-
-}
-function KinematicGenerate(){
+function GenerateKinematic(){
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     // 3d array: Array[EQNUM][Format]
+    Eq = Map.get(Id);
+    Unknown = KinematicEquations[RNG + 1];
     Formats = [
         ["A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds to FINAL_VELOCITY. Find the value of the blank. ", ]
     ]
     
-        
+    ValList = KinematicEquations[EqNum];
+    ValList.splice(0);
+    ValList.splice(RNG);
+
+
     Val1,Val2,Val3 = RandomInt(0,20);
+    Question = Array[EqNum][RandomInt(0,0)];
+    for (let i=0;i<ValList.length; i++){
+        if (ValList[i] = "s"){
+            Question.replace("DISPLACEMENT", ValList[i]);
+        } else if (ValList[i] = "u"){
+            Question.replace("INITAL_VELOCITY", ValList[i]);
+        } else if (ValList[i] = "v"){
+            Question.replace("FINAL_VELOCITY", ValList[i]);
+        } else if (ValList[i] = "a"){
+            Question.replace("ACCELERATION", ValList[i]);
+        } else if (ValList[i] = "t"){
+            Question.replace("TIME", ValList[i]);
+        }
+    }
 
+    document.getElementById("Question").innerText = Question;
 
-    document.getElementById("Question").innerText = Array[EqNum][RandomInt(0,0)];
-    
-    return eval(Map.get(Id));
-    
-
-
+    Reference = eval(Map.get(Id));
+    event.preventDefault();
 }
 
 
+function AnswerCheck(){
+    var Input = document.getElementById("KinematicInput").value; 
+
+    if (Input.trim() ==""){
+        alert("Please enter a value.");
+    } else if (Input == Reference){
+        alert("correct");
+        GenerateKinematic();
+    } else{
+        alert("incorrect");
+    }
+    event.preventDefault();
+}
 
 
 
