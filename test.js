@@ -1,7 +1,9 @@
 Reference = 0;
 EqNum = Math.floor(Math.random() *5);
+EqNum = 0;
 RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
+RNG = 0;
 
 KinematicEquations = [
     ["v=u+a*t" , "v", "u", "a", "t"],
@@ -10,8 +12,6 @@ KinematicEquations = [
     ["v^2 = u^2 + 2as", "v", "u", "a", "s" ],
     ["s = ((v+u)/2)*t", "s", "v", "u", "t"]
 ];
-
-alert(Id)
 
 EquationMap = new Map([
     // v = u + at
@@ -51,30 +51,35 @@ function GenerateKinematic(){
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     // 3d array: Array[EQNUM][Format]
-    Eq = Map.get(Id);
+    Eq = EquationMap.get(Id);
     Unknown = KinematicEquations[RNG + 1];
     Formats = [
-        ["A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds to FINAL_VELOCITY. Find the value of the blank. ", ]
-    ]
-    
+        ["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION for TIME seconds to FINAL_VELOCITY. Find the value of the blank. ", ]
+    ];
     ValList = KinematicEquations[EqNum];
-    ValList.splice(0);
-    ValList.splice(RNG);
+    ValList.splice(0, 1);
+    ValList.splice(RNG,1);
+    Val1 = RandomInt(0,20);
+    Val2 = RandomInt(0,20);
+    Val3 = RandomInt(0,20);
+    ValMap = new Map([
+        [ValList[0] , Val1],
+        [ValList[1] , Val2],
+        [ValList[2] , Val3],
 
-
-    Val1,Val2,Val3 = RandomInt(0,20);
-    Question = Array[EqNum][RandomInt(0,0)];
+    ]);
+    Question = Formats[EqNum][0];
     for (let i=0;i<ValList.length; i++){
-        if (ValList[i] = "s"){
-            Question.replace("DISPLACEMENT", ValList[i]);
-        } else if (ValList[i] = "u"){
-            Question.replace("INITAL_VELOCITY", ValList[i]);
-        } else if (ValList[i] = "v"){
-            Question.replace("FINAL_VELOCITY", ValList[i]);
-        } else if (ValList[i] = "a"){
-            Question.replace("ACCELERATION", ValList[i]);
-        } else if (ValList[i] = "t"){
-            Question.replace("TIME", ValList[i]);
+        if (ValList[i] == "s"){
+            Question = Question.replace("DISPLACEMENT", ValMap.get(ValList[i]));
+        } else if (ValList[i] == "u"){
+            Question = Question.replace("INITIAL_VELOCITY", ValMap.get(ValList[i]));
+        } else if (ValList[i] == "v"){
+            Question = Question.replace("FINAL_VELOCITY", ValMap.get(ValList[i]));
+        } else if (ValList[i] == "a"){
+            Question = Question.replace("CONST_ACCELERATION", ValMap.get(ValList[i]));
+        } else if (ValList[i] == "t"){
+            Question = Question.replace("TIME", ValMap.get(ValList[i]));
         }
     }
 
