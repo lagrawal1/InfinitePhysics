@@ -53,9 +53,7 @@ function GenerateKinematic(){
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     // 3d array: Array[EQNUM][Format]
-    
 
-    Eq = EquationMap.get(Id);
     Unknown = KinematicEquations[RNG + 1];
     Formats = [
         /*v = u + at*/["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster on the planet. To do this, they set an acceleration of CONST_ACCELERATION m/s^2 and a final velocity of FINAL_VELOCITY. Assuming the roller coaster starts off at INITIAL_VELOCITY m/s and the ride takes TIME seconds. Find the missing value to two decimal places."],
@@ -76,7 +74,7 @@ function GenerateKinematic(){
         [ValList[2] , Val3],
 
     ]);
-    Question = Formats[EqNum][RandomInt(0,1)];
+    Question = Formats[EqNum][RandomInt(0,2)];
     for (let i=0;i<ValList.length; i++){
         if (ValList[i] == "s"){
             Question = Question.replace("DISPLACEMENT", ValMap.get(ValList[i]));
