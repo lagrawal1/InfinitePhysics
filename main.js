@@ -53,7 +53,7 @@ function GenerateKinematic(){
     Eq = EquationMap.get(Id);
     Unknown = KinematicEquations[RNG + 1];
     Formats = [
-        ["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places. ", ],
+        /*v = u + at */["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places. ", ],
         [],
         [],
         [],
@@ -95,15 +95,14 @@ function GenerateKinematic(){
 
 function AnswerCheck(){
     var Input = document.getElementById("KinematicInput").value; 
-    alert(Reference);
 
     if (Input.trim() ==""){
-        alert("Please enter a value.");
+        document.getElementById("Response").innerText = "Please enter a value.";
     } else if (Input == Reference.toFixed(2)){
-        alert("correct");
+        document.getElementById("Response").innerText = "Correct";
         GenerateKinematic();
     } else{
-        alert("incorrect");
+        document.getElementById("Response").innerText =  "Incorrect. Try again."
     }
     event.preventDefault();
 }
