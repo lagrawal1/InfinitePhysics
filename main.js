@@ -24,23 +24,24 @@ EquationMap = new Map([
     ["11","(Val1-0.5*Val2*Val3*Val3)/Val3" ], // Unknown = u, Val1 = s, Val2 = a, Val3 = t
     ["12", "2*(s-u*t)/(t*t)" ], // Unknown = s, Val1 = u, Val2 = a, Val3 = t
     ["13" , "((-1*Val2 + Math.sqrt(Val2*Val2 + 2*Val2*Val1))/Val3)"], //Unknown = t, Val1 = s, Val2 = u, Val3 = a
+
     // s = vt - 1/2at^2
     ["20", "Val1*Val2-0.5*Val3*Val2*Val2" ], // Unknown = s ,Val1 = v, Val2 = t, Val3 = a
     ["21","(Val1+0.5*Val3*Val2*Val2)/Val2" ], // Unknown = v ,Val1 = s, Val2 = t, Val3 = a 
     ["22", "(Val2+Math.sqrt(Val2*Val2-2*Val1*Val3)/Val3" ], // Unknown = t ,Val1 = s, Val2 = v, Val3 = a
-    ["23" , ""], // Unknown = a ,Val1 = s, Val2 = v, Val3 = t
+    ["23" , "2*(Val2*Val3-Val1)/(Val3*Val3)"], // Unknown = a ,Val1 = s, Val2 = v, Val3 = t
 
     // v^2 = u^2 + 2as
-    ["30", "u+a*t" ],
-    ["31","v-a*t" ],
-    ["32", "(v-u)/t" ],
-    ["33" , "(v-u)/a"],
+    ["30", "Math.sqrt(Val1*Val1+2*Val2*Val3)" ], // Unknown = v ,Val1 = u, Val2 = a, Val3 = s
+    ["31","Math.sqrt(Val1*Val1-2*Val2*Val3)" ], // Unknown = u ,Val1 = v, Val2 = a, Val3 = s
+    ["32", "(Val1*Val1-Val2*Val2)/(2*Val3)" ], // Unknown = a ,Val1 = v, Val2 = u, Val3 = s
+    ["33" , "(Val1*Val1-Val2*Val2)/(2*Val3)"], // Unknown = s ,Val1 = v, Val2 = u, Val3 = a
     
     // s = ((v+u)/2)*t  
-    ["40", "u+a*t" ],
-    ["41","v-a*t" ],
-    ["42", "(v-u)/t" ],
-    ["43" , "(v-u)/a"],
+    ["40", "(Val1+Val2)/2*Val3" ], // Unknown = s ,Val1 = v, Val2 = u, Val3 = t
+    ["41","2*Val1/Val3 - Val2" ], // Unknown = v ,Val1 = s, Val2 = u, Val3 = t
+    ["42", "2*Val1/Val3 - Val2" ], // Unknown = u ,Val1 = s, Val2 = v, Val3 = t
+    ["43" , "2*Val1/(Val2+Val3)"], // Unknown = t ,Val1 = s, Val2 = v, Val3 = u
 ]);
 
 
@@ -73,6 +74,7 @@ function GenerateKinematic(){
         [ValList[2] , Val3],
 
     ]);
+    
     Question = Formats[EqNum][RandomInt(0,2)];
     for (let i=0;i<ValList.length; i++){
         if (ValList[i] == "s"){
@@ -94,7 +96,6 @@ function GenerateKinematic(){
     event.preventDefault();
 }
 
-
 function AnswerCheck(){
     var Input = document.getElementById("KinematicInput").value
 
@@ -111,6 +112,3 @@ function AnswerCheck(){
     }
     event.preventDefault();
 }
-
-
-
