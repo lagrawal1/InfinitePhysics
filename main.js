@@ -1,8 +1,10 @@
-Reference = 0;
+import dataJson from 'Question.json';
+document.getElementById('Question').innerText= JSON.stringify(dataJson); Reference = 0;
 EqNum = Math.floor(Math.random() *5);
 EqNum = 0;
 RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
+
 
 
 
