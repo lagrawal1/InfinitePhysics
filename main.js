@@ -24,7 +24,6 @@ EquationMap = new Map([
     ["11","(Val1-0.5*Val2*Val3*Val3)/Val3" ], // Unknown = u, Val1 = s, Val2 = a, Val3 = t
     ["12", "2*(s-u*t)/(t*t)" ], // Unknown = s, Val1 = u, Val2 = a, Val3 = t
     ["13" , "((-1*Val2 + Math.sqrt(Val2*Val2 + 2*Val2*Val1))/Val3)"], //Unknown = t, Val1 = s, Val2 = u, Val3 = a
-    whiskey
     // s = vt - 1/2at^2
     ["20", "Val1*Val2-0.5*Val3*Val2*Val2" ], // Unknown = s ,Val1 = v, Val2 = t, Val3 = a
     ["21","(Val1+0.5*Val3*Val2*Val2)/Val2" ], // Unknown = v ,Val1 = s, Val2 = t, Val3 = a 
@@ -58,16 +57,16 @@ function GenerateKinematic(){
     Formats = [
         /*v = u + at*/["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster on the planet. To do this, they set an acceleration of CONST_ACCELERATION m/s^2 and a final velocity of FINAL_VELOCITY. Assuming the roller coaster starts off at INITIAL_VELOCITY m/s and the ride takes TIME seconds. Find the missing value to two decimal places."],
         /*s = ut + 0.5at^2*/ ["A car starts off with a velocity of INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds and covers DISPLACEMENT m. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster on the planet. To achieve this, the roller coaster should drop from a heigh of DISPLACEMENT m, assuming initial velocity is INITIAL_VELOCITY m /sand the roller coaster accelerates at CONST_ACCELERATION m/s^2 for TIME seconds. Find the missing value to two decimal places."],
-        /*s = vt - 0.5at^2*/ ["A car accelerates at CONST_ACCELERATION m/s^2 for TIME seconds and reaches a velocity of FINAL_VELOCITY m/s. During this journey, it covers a distance of DISPLACEMENT m. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster on the planet. To achieve this, the roller coaster should drop from a heigh of DISPLACEMENT m, and reach a final velocity of FINAL_VELOCITY m/s, with acceleration CONST_ACCELERATION m/s^2 in TIME seconds. Find the missing value to two decimal places."],
+        /*s = vt - 0.5at^2*/ ["A car accelerates at CONST_ACCELERATION m/s^2 for TIME seconds and reaches a velocity of FINAL_VELOCITY m/s. During this journey, it covers a distance of DISPLACEMENT m. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster on the planet. To achieve this, the roller coaster should drop from a height of DISPLACEMENT m, and reach a final velocity of FINAL_VELOCITY m/s, with acceleration CONST_ACCELERATION m/s^2 in TIME seconds. Find the missing value to two decimal places."],
         /*v^2 = u^2 + 2as*/["A car accelerates at CONST_ACCELERATION m/s^2 from INITIAL_VELOCITY m/s to FINAL_VELOCITY m/s. It covers a distance of DISPLACEMENT m during this journey. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster ever. To accomplish this, for the drop, a height of DISPLACEMENT m needs to be taken considering the roller coaster will start from INITIAL_VELOCITY m/s and reach a FINAL_VELOCITY m/s in TIME seconds. Find the missing value to two decimal places."],
         /*s = ((v+u)/2)*t*/["A car goes from INITIAL_VELOCITY m/s to FINAL_VELOCITY m/s in TIME seconds. It covers a distance of DISPLACEMENT m during this journey. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster ever. To do this, they want the roller coaster to reach a velocity of FINAL_VELOCITY m/s in TIME seconds. Assuming the initial velocity will be INITIAL_VELOCITY m/s and the coaster will cover a distance of DISPLACEMENT m, find the missing value to two decimal places."]
     ];
     ValList = KinematicEquations[EqNum];
     ValList.splice(0, 1);
     ValList.splice(RNG,1);
-    Val1 = RandomInt(0,20);
-    Val2 = RandomInt(0,20);
-    Val3 = RandomInt(0,20);
+    Val1 = RandomInt(1,20);
+    Val2 = RandomInt(1,20);
+    Val3 = RandomInt(1,20);
     ValMap = new Map([
         [ValList[0] , Val1],
         [ValList[1] , Val2],
