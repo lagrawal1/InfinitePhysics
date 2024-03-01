@@ -9,12 +9,64 @@ KinematicEquations = [
     ["s = ((v+u)/2)*t", "s", "v", "u", "t"]
 ];
 
-function RandomInt(max,min){
+RNG = Math.floor(Math.random() *4);
+Id = EqNum.toString() + RNG.toString();
+alert(Id)
+
+EquationMap = new Map([
+    // v = u + at
+    ["00", "u+a*t" ], // v
+    ["01","v-a*t" ], // u
+    ["02", "(v-u)/t" ], // a
+    ["03" , "(v-u)/a"], // t
+
+    // s = ut +0.5at^2
+    ["10", "u*t+0.5*a*t*t" ], // s
+    ["11","(s-0.5*a*t*t)/t" ], // u
+    ["12", "2*(s-u*t)/(t*t)" ], // a
+    ["13" , "((-1*u + Math.sqrt(u*u + 2*a*s))/a)"], //t
+
+    ["20", "u+a*t" ],
+    ["21","v-a*t" ],
+    ["22", "(v-u)/t" ],
+    ["23" , "(v-u)/a"],
+
+    ["30", "u+a*t" ],
+    ["31","v-a*t" ],
+    ["32", "(v-u)/t" ],
+    ["33" , "(v-u)/a"],
+
+    ["40", "u+a*t" ],
+    ["41","v-a*t" ],
+    ["42", "(v-u)/t" ],
+    ["43" , "(v-u)/a"],
+]);
+
+
+function RandomInt(min,max){
     return (Math.floor((Math.random()* (max-min)) + min));
 }
 
 
 
+function KinematicEq(){
+    Formats = [
+        ["A car is driving at INITAL_VELOCTIY m/s. It accelerates at CONST_ACCELERATION for TIME seconds to FINAL_VELOCITY. Find the value of the blank. ", ]
+    ]
+
+    Eq = Map.get(Id);
+    Unknown = KinematicEquations[RNG + 1];
+
+
+    
+
+    
+
+
+
+
+
+}
 
 
 
@@ -38,7 +90,10 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
         
     Val1,Val2,Val3 = RandomInt(0,20);
     document.getElementById("Question").innerText = ParameterNames[0]+" = "+Val1 +" , "+ ParameterNames[1]+" = "+Val2 + " , "+ParameterNames[2]+" = "+Val3;
-
+    
+    return eval(Map.get(Id));
+    
+    /*
     switch(EqNum){
         case 0:
             // v = u + at
@@ -131,7 +186,7 @@ function KinematicEq1(Val1 , Val2, Val3,Unknown, ParameterNames){
             break;
         
 
-    }
+    }*/
 
 
 }
