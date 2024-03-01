@@ -1,6 +1,5 @@
 Reference = 0;
 EqNum = Math.floor(Math.random() *5);
-EqNum = 0;
 RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
 
@@ -21,21 +20,24 @@ EquationMap = new Map([
     ["03" , "(Val1-Val2)/Val3"], // Unknown = t ,Val1 = u, Val2 = a, Val3 = a
 
     // s = ut +0.5at^2
-    ["10", "u*t+0.5*a*t*t" ], // s
-    ["11","(s-0.5*a*t*t)/t" ], // u
-    ["12", "2*(s-u*t)/(t*t)" ], // a
-    ["13" , "((-1*u + Math.sqrt(u*u + 2*a*s))/a)"], //t
-
-    ["20", "u+a*t" ],
-    ["21","v-a*t" ],
+    ["10", "Val1*Val3+0.5*Val2*Val3*Val3" ], // Unknown = s, Val1 = u, Val2 = a, Val3 = t
+    ["11","(Val1-0.5*Val2*Val3*Val3)/Val3" ], // Unknown = u, Val1 = s, Val2 = a, Val3 = t
+    ["12", "2*(s-u*t)/(t*t)" ], // Unknown = s, Val1 = u, Val2 = a, Val3 = t
+    ["13" , "((-1*Val2 + Math.sqrt(Val2*Val2 + 2*Val2*Val1))/Val3)"], //Unknown = t, Val1 = s, Val2 = u, Val3 = a
+    whiskey
+    // s = vt - 1/2at^2
+    ["20", "Val1*Val2-0.5*Val3*Val2*Val2" ], // Unknown = s ,Val1 = v, Val2 = t, Val3 = a
+    ["21","" ], // Unknown = v ,Val1 = s, Val2 = t, Val3 = a 
     ["22", "(v-u)/t" ],
     ["23" , "(v-u)/a"],
 
+    // v^2 = u^2 + 2as
     ["30", "u+a*t" ],
     ["31","v-a*t" ],
     ["32", "(v-u)/t" ],
     ["33" , "(v-u)/a"],
-
+    
+    // s = ((v+u)/2)*t  
     ["40", "u+a*t" ],
     ["41","v-a*t" ],
     ["42", "(v-u)/t" ],
@@ -56,11 +58,11 @@ function GenerateKinematic(){
     Eq = EquationMap.get(Id);
     Unknown = KinematicEquations[RNG + 1];
     Formats = [
-        /*v = u + at */["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places. ", ],
-        [],
-        [],
-        [],
-        []
+        /*v = u + at*/["A car is driving at INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds to FINAL_VELOCITY m/s. Find the missing value to 2 decimal places.", "A team of engineers want to make the scariest roller coaster on the planet. To do this, they set an acceleration of CONST_ACCELERATION m/s^2 and a final velocity of FINAL_VELOCITY. Assuming the roller coaster starts off at INITIAL_VELOCITY m/s and the ride takes TIME seconds. Find the missing value to two decimal places."],
+        /*s = ut + 0.5at^2*/ ["A car starts off with a velocity of INITIAL_VELOCITY m/s. It accelerates at CONST_ACCELERATION m/s^2 for TIME seconds and covers DISPLACEMENT m. Find the missing value to 2 decimal places."],
+        /*s = vt - 0.5at^2*/ ["A car accelerates at CONST_ACCELERATION m/s^2 for TIME seconds and reaches a velocity of FINAL_VELOCITY m/s. During this journey, it covers a distance of DISPLACEMENT m. Find the missing value to 2 decimal places."],
+        /*v^2 = u^2 + 2as*/["A car accelerates at CONST_ACCELERATION m/s^2 from INITIAL_VELOCITY m/s to FINAL_VELOCITY m/s. It covers a distance of DISPLACEMENT m during this journey. Find the missing value to 2 decimal places."],
+        /*s = ((v+u)/2)*t*/["A car goes from INITIAL_VELOCITY m/s to FINAL_VELOCITY m/s in TIME seconds. It covers a distance of DISPLACEMENT m during this journey. Find the missing value to 2 decimal places."]
     ];
     ValList = KinematicEquations[EqNum];
     ValList.splice(0, 1);
