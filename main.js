@@ -48,6 +48,9 @@ function RandomInt(min,max){
 }
 
 function GenerateKinematic(){
+    // To clear the response thing
+    document.getElementById("Response").innerHTML = "";
+
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     // 3d array: Array[EQNUM][Format]
