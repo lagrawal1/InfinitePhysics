@@ -1,5 +1,4 @@
-import dataJson from 'Question.json';
-document.getElementById('Question').innerText= JSON.stringify(dataJson); Reference = 0;
+Reference = 0;
 EqNum = Math.floor(Math.random() *5);
 EqNum = 0;
 RNG = Math.floor(Math.random() *4);
@@ -106,10 +105,13 @@ function AnswerCheck(){
     if (Input.trim() ==""){
         document.getElementById("Response").innerText = "Please enter a value.";
     } else if (Input == Reference.toFixed(2)){
+        document.getElementById("Response").style.color = "green";
         document.getElementById("Response").innerText = "Correct";
+
         GenerateKinematic();
     } else{
-        document.getElementById("Response").innerText =  "Incorrect. Try again."
+        document.getElementById("Response").style.color = "red";
+        document.getElementById("Response").innerText =  "Incorrect. Try again.";
     }
     event.preventDefault();
 }
