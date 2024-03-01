@@ -4,6 +4,8 @@ EqNum = 0;
 RNG = Math.floor(Math.random() *4);
 Id = EqNum.toString() + RNG.toString();
 
+
+
 KinematicEquations = [
     ["v=u+a*t" , "v", "u", "a", "t"],
     ["s=ut+1/2at^2 " , "s", "u", "a", "t"],
@@ -50,6 +52,8 @@ function GenerateKinematic(){
     // For formats, create a list of formats for each case. Place INITIAL_VELOCITY etc. as temp values. Use text.replace to replace these temp values
     // A ball is thrown at an angle of ANGLE_DEG with a initial velocity of INITIAL_VELOCITY
     // 3d array: Array[EQNUM][Format]
+    
+
     Eq = EquationMap.get(Id);
     Unknown = KinematicEquations[RNG + 1];
     Formats = [
@@ -87,6 +91,7 @@ function GenerateKinematic(){
     }
 
     document.getElementById("Question").innerText = Question;
+    const Obj = Json.parse
 
     Reference= eval(EquationMap.get(Id));
     event.preventDefault();
